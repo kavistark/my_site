@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}Student LMS Portal | Nconix Academy{% endblock %}
+
+{% block meta_description %}Nconix Student Academy LMS Portal: Access enrolled courses, live classroom links, Packet Tracer networking labs, and mentor code review desk.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag emerald">Student Learning Workspace</div>
+          <h1 class="section-title">Student <span class="gradient-text">Academy LMS</span></h1>
+          <p class="section-desc">Track your curriculum syllabus, submit project assignments, launch live virtual classes, and interact 1-on-1 with senior engineering mentors.</p>
+        </div>
+
+        <!-- Student Authentication & Session Banner -->
+        <div class="glass-card" style="padding: 1.75rem 2rem; margin-bottom: 2rem; border-color: rgba(16, 185, 129, 0.35);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-emerald" style="margin-bottom: 0.35rem;">Academy Student Desk</span>
+              <h2 style="font-size: 1.35rem; color: var(--text-white); margin-bottom: 0.25rem;">Dedicated Student Workspace</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Sign in to access your video lectures, live class links, assignments, and verified certificates.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button type="button" onclick="window.NconixApp.openLoginModal('student')" class="btn btn-primary btn-sm">🎓 Student Sign In</button>
+              <button type="button" onclick="window.NconixApp.openRegisterModal('student')" class="btn btn-outline-cyan btn-sm">🎓 Create Free Student Account</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Metrics Grid -->
+        <div class="dash-metrics-grid" style="margin-bottom: 2rem;">
+          <div class="metric-box">
+            <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div>
+              <div class="metric-val">2 Active</div>
+              <div class="metric-lbl">Enrolled Programs</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div>
+              <div class="metric-val">84%</div>
+              <div class="metric-lbl">Syllabus Progress</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></div>
+            <div>
+              <div class="metric-val">3 Repos</div>
+              <div class="metric-lbl">Verified Capstone Projects</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+            <div>
+              <div class="metric-val">1 Certificate</div>
+              <div class="metric-lbl">CCNA Verified Credential</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Student Workspace Split: Syllabus & Assignments on Left, Live Classroom & Mentor Chat on Right -->
+        <div class="dash-layout-split" style="margin-bottom: 4rem;">
+          <!-- Left: Active Track & Assignment Submission -->
+          <div>
+            <!-- Active Learning Track -->
+            <div class="dash-panel" style="margin-bottom: 1.75rem;">
+              <div class="dash-panel-header">
+                <div>
+                  <span class="dash-panel-title">Active Program Syllabus</span>
+                  <div style="font-size: 0.8125rem; color: var(--text-muted);">Generative AI with Python & Autonomous Multi-Agents</div>
+                </div>
+                <span class="badge badge-cyan">Week 7 of 12</span>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8125rem; margin-bottom: 0.35rem;">
+                  <span style="color: var(--text-muted);">Track Completion:</span>
+                  <span style="color: var(--cyan-accent); font-weight: 700;">84% Completed</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-fill" style="width: 84%;"></div>
+                </div>
+              </div>
+
+              <div class="dash-list">
+                <div class="dash-list-item">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.9rem; display: block;">Modules 1-6: Vector Databases & FAISS Pipeline</strong>
+                    <span style="font-size: 0.775rem; color: var(--emerald-accent);">✓ Code Review Passed (100%)</span>
+                  </div>
+                  <span class="badge badge-emerald">Passed</span>
+                </div>
+                <div class="dash-list-item">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.9rem; display: block;">Module 7: Multi-Agent Tool Calling with LangGraph</strong>
+                    <span style="font-size: 0.775rem; color: var(--cyan-accent);">Active Assignment</span>
+                  </div>
+                  <span class="badge badge-cyan">In Progress</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Assignment Submission Sandbox -->
+            <div class="glass-card" style="padding: 1.75rem; border-color: rgba(0, 240, 255, 0.25);">
+              <h3 style="font-size: 1.15rem; color: var(--text-white); margin-bottom: 0.5rem;">Submit Capstone GitHub Repository</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Paste your assignment repository URL for automated CI/CD test execution and mentor evaluation.</p>
+
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <input type="url" id="student-repo-input" class="form-control" placeholder="https://github.com/username/rag-agent-assignment" style="flex: 1; min-width: 240px;">
+                <button class="btn btn-primary btn-sm" onclick="window.NconixApp.showToast('✓ Repository submitted! Automated test suite running (9/9 passed). Mentor review scheduled.')">
+                  Submit Repo →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Class & Mentor Q&A Messenger -->
+          <div>
+            <!-- Live Classroom Entry -->
+            <div class="dash-panel" style="margin-bottom: 1.75rem; border-color: rgba(16, 185, 129, 0.35);">
+              <div class="dash-panel-header">
+                <span class="dash-panel-title">Next Live Interactive Session</span>
+                <span class="badge badge-emerald">Tomorrow 7:00 PM</span>
+              </div>
+              <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.35rem;">
+                Advanced Agentic Reasoning & Tool Calling
+              </div>
+              <div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 1rem;">
+                Instructor: A. Sharma • Live Code Sandbox & Q&A
+              </div>
+              <button class="btn btn-primary btn-sm" style="width: 100%; background: var(--gradient-violet-emerald);" onclick="window.NconixApp.showToast('Entering Live Google Meet Classroom...')">
+                Enter Live Classroom Room →
+              </button>
+            </div>
+
+            <!-- Student-Mentor Q&A Messenger -->
+            <div class="portal-chat-box">
+              <div class="portal-chat-header">
+                <div>
+                  <div style="display: flex; align-items: center;">
+                    <span class="chat-online-indicator"></span>
+                    <strong style="color: var(--text-white); font-size: 0.95rem;">Academy Mentor Desk</strong>
+                  </div>
+                  <span style="font-size: 0.75rem; color: var(--cyan-accent);">P. Verma (Lead AI Instructor)</span>
+                </div>
+                <span class="badge badge-emerald">Online</span>
+              </div>
+
+              <div class="portal-chat-messages" id="student-chat-messages">
+                <!-- Dynamically populated from /api/portal/chat/?channel=student_mentor_chat -->
+              </div>
+
+              <form id="student-chat-form" class="portal-chat-input-row">
+                <input type="text" id="student-chat-input" placeholder="Ask your mentor a technical question..." required>
+                <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.65rem 1rem;">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,358 @@
+/* ==========================================================================
+   NCONIX PORTALS & DASHBOARDS
+   Student, Client, and Admin Dashboard Experiences
+   ========================================================================== */
+
+.dashboard-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-top: 2rem;
+}
+
+/* Dashboard Switcher Bar */
+.dashboard-nav-tabs {
+  display: flex;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 0.5rem 1rem 0;
+  gap: 0.5rem;
+}
+
+.dash-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.dash-tab-btn:hover {
+  color: var(--text-white);
+  background: var(--cyan-dim);
+}
+
+.dash-tab-btn.active {
+  color: var(--cyan-accent);
+  background: var(--cyan-dim);
+  border-bottom: 2px solid var(--cyan-accent);
+}
+
+.dash-tab-btn.violet.active {
+  color: var(--violet-accent);
+  background: var(--violet-dim);
+  border-bottom-color: var(--violet-accent);
+}
+
+.dash-tab-btn.emerald.active {
+  color: var(--emerald-accent);
+  background: var(--emerald-dim);
+  border-bottom-color: var(--emerald-accent);
+}
+
+/* Dashboard Content Body */
+.dashboard-body {
+  padding: 2.5rem;
+  min-height: 480px;
+}
+
+.dash-view {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dash-view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dashboard Metrics Row */
+.dash-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.metric-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(168, 85, 247, 0.05) 100%);
+  color: var(--cyan-accent);
+  border: 1px solid var(--border-cyan);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.metric-icon.violet {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0.05) 100%);
+  color: var(--violet-accent);
+  border-color: var(--border-violet);
+}
+
+.metric-icon.emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+  color: var(--emerald-accent);
+  border-color: var(--border-emerald);
+}
+
+[data-theme="light"] .metric-icon {
+  background: linear-gradient(135deg, rgba(101, 146, 135, 0.14) 0%, rgba(177, 211, 185, 0.28) 100%);
+  border-color: var(--border-cyan);
+  box-shadow: 0 2px 8px rgba(101, 146, 135, 0.12);
+}
+
+.metric-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.metric-lbl {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Dashboard Data Tables & Lists */
+.dash-layout-split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .dash-layout-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dash-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.dash-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.dash-panel-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-cyan-violet);
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+/* Class List Items */
+.dash-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dash-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.dash-list-item:hover {
+  background: rgba(0, 240, 255, 0.04);
+  border-color: var(--border-glass);
+}
+
+/* ==========================================================================
+   PORTAL INTERACTIVE CHAT & MESSENGER
+   ========================================================================== */
+
+.portal-chat-box {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+  overflow: hidden;
+}
+
+.portal-chat-header {
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-glass);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-online-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald-accent);
+  box-shadow: 0 0 8px var(--emerald-accent);
+  margin-right: 0.4rem;
+}
+
+.portal-chat-messages {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.portal-chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.portal-chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+}
+
+.chat-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 82%;
+  animation: fadeIn 0.2s ease;
+}
+
+.chat-msg.client {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.chat-msg.admin,
+.chat-msg.mentor {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.chat-msg-sender {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.chat-msg-bubble {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.chat-msg.client .chat-msg-bubble {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(168, 85, 247, 0.15));
+  border: 1px solid var(--border-cyan);
+  color: var(--text-white);
+  border-bottom-right-radius: 2px;
+}
+
+.chat-msg.admin .chat-msg-bubble {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-msg-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.portal-chat-input-row {
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border-glass);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.portal-chat-input-row input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  color: var(--text-white);
+  font-size: 0.875rem;
+}
+
+.portal-chat-input-row input:focus {
+  outline: none;
+  border-color: var(--cyan-accent);
+}
+
+/* Requirement submission cards */
+.project-req-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.project-req-card:hover {
+  border-color: var(--cyan-accent);
+  transform: translateY(-2px);
+}
+

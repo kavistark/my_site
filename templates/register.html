@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account | Nconix Registration{% endblock %}
+
+{% block meta_description %}Join Nconix: Register as a student learner for hands-on software & AI training, or as an enterprise client to initiate custom engineering projects.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 3rem); min-height: 80vh; display: flex; align-items: center;">
+      <div class="container" style="max-width: 580px; margin: 0 auto;">
+        <div class="glass-card" style="padding: 2.5rem; border-color: rgba(16, 185, 129, 0.35); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);">
+          
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <div class="brand-icon" style="margin: 0 auto 1rem; width: 48px; height: 48px; font-size: 1.5rem;">
+              <svg viewBox="0 0 24 24" style="width: 28px; height: 28px;">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span class="badge badge-emerald" style="margin-bottom: 0.5rem;">Join Nconix Platform</span>
+            <h1 style="font-size: 2rem; color: var(--text-white); margin-bottom: 0.35rem;">Create Your <span class="gradient-text">Account</span></h1>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Get instant access to coursework, AI labs, code sandboxes, or enterprise sprint tracking.</p>
+          </div>
+
+          <!-- Role Selection Tabs -->
+          <div style="display: flex; gap: 0.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-glass); padding: 0.35rem; border-radius: var(--radius-sm); margin-bottom: 1.75rem;" id="page-reg-role-tabs">
+            <button type="button" class="btn btn-sm btn-primary" style="flex: 1; font-size: 0.8125rem;" onclick="setPageRegRole('student', this)">🎓 Student / Learner</button>
+            <button type="button" class="btn btn-sm btn-secondary" style="flex: 1; font-size: 0.8125rem;" onclick="setPageRegRole('client', this)">💼 Enterprise Client</button>
+          </div>
+
+          <div id="page-reg-error" style="display:none;background:rgba(239,68,68,0.15);border:1px solid #ef4444;color:#fca5a5;padding:0.75rem 1rem;border-radius:var(--radius-sm);font-size:0.875rem;margin-bottom:1.5rem;"></div>
+
+          <form id="page-register-form" onsubmit="handlePageRegister(event)">
+            <input type="hidden" id="page-reg-role" name="role" value="student">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="page-reg-name">Full Name</label>
+                <input type="text" class="form-control" id="page-reg-name" name="name" placeholder="Alex Morgan" required autofocus>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="page-reg-email">Email Address</label>
+                <input type="email" class="form-control" id="page-reg-email" name="email" placeholder="alex@example.com" required>
+              </div>
+            </div>
+
+            <div id="page-reg-company-group" class="form-group" style="display: none; margin-bottom: 1rem;">
+              <label class="form-label" for="page-reg-company">Organization / Venture Name</label>
+              <input type="text" class="form-control" id="page-reg-company" name="company" placeholder="Acme Logistics Corp">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label class="form-label" for="page-reg-pass">Create Secure Password (min 6 characters)</label>
+              <div style="position: relative;">
+                <input type="password" class="form-control" id="page-reg-pass" name="password" placeholder="••••••••" minlength="6" required style="padding-right: 2.5rem;">
+                <button type="button" onclick="togglePassVisibility('page-reg-pass', this)" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center;">
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.8125rem; color: var(--text-secondary);">
+              <input type="checkbox" id="terms-agree" checked required style="accent-color: var(--emerald-accent); cursor: pointer;">
+              <label for="terms-agree" style="cursor: pointer;">I agree to the <a href="javascript:void(0)" style="color: var(--cyan-accent);">Terms of Service</a> & <a href="javascript:void(0)" style="color: var(--cyan-accent);">Privacy Policy</a></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="page-reg-btn" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 700; background: var(--gradient-emerald);">
+              Create Account & Access Portal →
+            </button>
+          </form>
+
+          <div style="text-align: center; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.875rem; color: var(--text-muted);">
+            Already have an account? 
+            <a href="/login.html" style="color: var(--cyan-accent); font-weight: 700;">Sign In here</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function setPageRegRole(role, btn) {
+        document.getElementById('page-reg-role').value = role;
+        const companyGroup = document.getElementById('page-reg-company-group');
+        if (companyGroup) {
+          companyGroup.style.display = role === 'client' ? 'block' : 'none';
+        }
+        const parent = document.getElementById('page-reg-role-tabs');
+        if (parent) {
+          parent.querySelectorAll('button').forEach(b => {
+            b.className = 'btn btn-sm btn-secondary';
+          });
+          btn.className = 'btn btn-sm btn-primary';
+        }
+      }
+
+      function togglePassVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        if (input.type === 'password') {
+          input.type = 'text';
+          btn.innerText = '🔒';
+        } else {
+          input.type = 'password';
+          btn.innerText = '👁️';
+        }
+      }
+
+      async function handlePageRegister(e) {
+        e.preventDefault();
+        const form = e.target;
+        const errorBox = document.getElementById('page-reg-error');
+        const submitBtn = document.getElementById('page-reg-btn');
+
+        if (errorBox) errorBox.style.display = 'none';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Creating Account...';
+        }
+
+        const payload = {
+          name: form.name.value,
+          email: form.email.value,
+          password: form.password.value,
+          role: form.role ? form.role.value : 'student',
+          company: form.company ? form.company.value : ''
+        };
+
+        try {
+          const resp = await fetch('/api/auth/register/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await resp.json();
+
+          if (data.success) {
+            if (window.NconixApp) {
+              window.NconixApp.showToast(`✓ ${data.message}`);
+              window.NconixApp.updateNavbarAuthUI(data.user);
+            }
+            setTimeout(() => {
+              window.location.href = data.redirect_url || '/portals.html';
+            }, 500);
+          } else {
+            if (errorBox) {
+              errorBox.innerText = data.message || 'Registration failed. Please check your information.';
+              errorBox.style.display = 'block';
+            }
+          }
+        } catch (err) {
+          if (errorBox) {
+            errorBox.innerText = 'Network error. Please try again.';
+            errorBox.style.display = 'block';
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Create Account & Access Portal →';
+          }
+        }
+      }
+
+      // Check URL param for role
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const role = urlParams.get('role');
+        if (role && ['student', 'client'].includes(role)) {
+          const btn = document.querySelector(`[onclick*="'${role}'"]`);
+          if (btn) setPageRegRole(role, btn);
+        }
+      });
+    </script>
+{% endblock %}

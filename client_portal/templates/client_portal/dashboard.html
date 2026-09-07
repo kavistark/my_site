@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block title %}Enterprise Client Portal | Nconix{% endblock %}
+
+{% block meta_description %}Nconix Enterprise Client Portal: Track active project sprints, submit new feature requirements, review staging API deployments, and chat directly with lead architects.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag violet">Enterprise Workspace</div>
+          <h1 class="section-title">Client <span class="gradient-text">Project Portal</span></h1>
+          <p class="section-desc">Manage your active software & AI engineering deliverables, submit new requirements, track sprint velocity, and communicate directly with your dedicated technical lead.</p>
+        </div>
+
+        <!-- Client Authentication & Session Banner -->
+        <div class="glass-card" style="padding: 1.75rem 2rem; margin-bottom: 2rem; border-color: rgba(139, 92, 246, 0.35);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-violet" style="margin-bottom: 0.35rem;">Enterprise Client Desk</span>
+              <h2 style="font-size: 1.35rem; color: var(--text-white); margin-bottom: 0.25rem;">Dedicated Client Workspace</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Sign in with your enterprise account to access private staging clusters, code repositories, and sprint deliverables.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button type="button" onclick="window.NconixApp.openLoginModal('client')" class="btn btn-secondary btn-sm">💼 Client Sign In</button>
+              <button type="button" onclick="window.NconixApp.openRegisterModal('client')" class="btn btn-outline-cyan btn-sm">💼 Register Organization</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Metrics Grid -->
+        <div class="dash-metrics-grid" style="margin-bottom: 2rem;">
+          <div class="metric-box">
+            <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <div class="metric-val">2 Projects</div>
+              <div class="metric-lbl">Active Production Builds</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div>
+              <div class="metric-val">Sprint 4</div>
+              <div class="metric-lbl">75% Milestone Completed</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div>
+              <div class="metric-val">99.98%</div>
+              <div class="metric-lbl">Staging API Uptime</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <div class="metric-val">&lt; 15 min</div>
+              <div class="metric-lbl">Lead Architect SLA Response</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Client Workspace Split: Projects & Requirements on Left, Real-Time Chat on Right -->
+        <div class="dash-layout-split" style="margin-bottom: 4rem;">
+          <!-- Left Column: Active Projects + Requirement Submission -->
+          <div>
+            <!-- Active Projects Board -->
+            <div class="dash-panel" style="margin-bottom: 2rem;">
+              <div class="dash-panel-header">
+                <div>
+                  <span class="dash-panel-title">Active Project Deliverables & Sprints</span>
+                  <div style="font-size: 0.8125rem; color: var(--text-muted);">Current engineering milestones, architecture verification & staging builds</div>
+                </div>
+                <span class="badge badge-cyan">Live Sync</span>
+              </div>
+
+              <div id="client-projects-list">
+                <!-- Dynamically loaded from /api/portal/requirements/ via dashboard.js -->
+              </div>
+            </div>
+
+            <!-- Submit Project Requirement / Feature Request Form -->
+            <div class="glass-card" style="padding: 2rem; border-color: rgba(139, 92, 246, 0.35);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.25rem; color: var(--text-white); margin-bottom: 0.25rem;">➕ Submit New Project Requirement / Scope Spec</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Submit new architecture user stories, API endpoints, or database requirements directly into the next sprint queue.</p>
+                </div>
+                <span class="badge badge-violet">Requirements Desk</span>
+              </div>
+
+              <form id="submit-requirement-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Project / Feature Name</label>
+                    <input type="text" id="req-project-name" class="form-control" placeholder="e.g. Multi-Tenant Vector Search Microservice" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Technology Category</label>
+                    <select id="req-category" class="form-control">
+                      <option value="Enterprise RAG & AI">Enterprise RAG & AI Agents</option>
+                      <option value="Custom Software & Web App">Custom Software & Web App</option>
+                      <option value="Computer Vision & Video Analytics">Computer Vision & Video Analytics</option>
+                      <option value="Cloud Architecture & CI/CD">Cloud Architecture & CI/CD</option>
+                      <option value="API & System Integration">API & System Integration</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Contact Person</label>
+                    <input type="text" id="req-client-name" class="form-control" placeholder="Jane Doe" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Work Email</label>
+                    <input type="email" id="req-client-email" class="form-control" placeholder="jane@company.com" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Organization Name</label>
+                    <input type="text" id="req-company" class="form-control" placeholder="Acme Logistics Corp">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Priority Level</label>
+                    <select id="req-priority" class="form-control">
+                      <option value="standard">Standard Velocity</option>
+                      <option value="high" selected>High Priority (Sprint Inclusion)</option>
+                      <option value="urgent">Urgent / Critical Blocker</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Target Delivery Timeline</label>
+                    <input type="text" id="req-timeline" class="form-control" placeholder="e.g. 4 Weeks" value="4 Weeks">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Technical Specifications & Requirements</label>
+                  <textarea id="req-desc" class="form-control" rows="4" placeholder="Detail the business requirements, target latency SLA, authentication requirements, input schemas, and desired deliverables..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--gradient-cyan-violet);">
+                  Submit Requirement to Engineering Team →
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Live Chat Desk & Quick Actions -->
+          <div>
+            <!-- Live Chat Messenger with Lead Architect -->
+            <div class="portal-chat-box">
+              <div class="portal-chat-header">
+                <div>
+                  <div style="display: flex; align-items: center;">
+                    <span class="chat-online-indicator"></span>
+                    <strong style="color: var(--text-white); font-size: 0.95rem;">Lead Architect & PM Desk</strong>
+                  </div>
+                  <span style="font-size: 0.75rem; color: var(--emerald-accent);">Direct Engineering Channel</span>
+                </div>
+                <span class="badge badge-cyan">24/7 SLA</span>
+              </div>
+
+              <div class="portal-chat-messages" id="client-chat-messages">
+                <!-- Dynamically populated from /api/portal/chat/?channel=client_admin_chat -->
+              </div>
+
+              <form id="client-chat-form" class="portal-chat-input-row">
+                <input type="text" id="client-chat-input" placeholder="Type a message to your lead architect..." required>
+                <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.65rem 1rem;">Send</button>
+              </form>
+            </div>
+
+            <!-- Quick Project Actions -->
+            <div class="glass-card" style="padding: 1.5rem; margin-top: 1.5rem;">
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.85rem;">
+                Enterprise Project Actions
+              </span>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Triggering Staging API Re-deploy...')">
+                  🚀 Trigger Staging Re-deploy & Healthcheck
+                </button>
+                <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Downloading Architecture Blueprint Spec (PDF)...')">
+                  📄 Download Architecture Blueprint & Schemas (PDF)
+                </button>
+                <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Downloading NDA & Enterprise SLA Agreement (PDF)...')">
+                  🔒 Download Signed NDA & SLA Contract
+                </button>
+                <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Scheduling Sprint Review Meeting...')">
+                  📅 Schedule 1-on-1 Sprint Architecture Review
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

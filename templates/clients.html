@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Clients & Verified Case Studies | Nconix{% endblock %}
+
+{% block meta_description %}Discover how Nconix partners with healthtech, supply chain, and education leaders to solve complex technical bottlenecks.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag emerald">Client Success</div>
+          <h1 class="section-title">Trusted By <span class="gradient-text-emerald">Enterprises & Innovators</span></h1>
+          <p class="section-desc">See how Nconix engineers custom software, AI retrieval systems, and workflow engines that deliver measurable outcomes.</p>
+        </div>
+
+        <!-- Trusted By Logos -->
+        <div class="glass-card" style="margin-bottom: 3.5rem; text-align: center; padding: 2rem;">
+          <div style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem;">
+            Trusted by Technology Leaders & High-Growth Organizations
+          </div>
+          <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; opacity: 0.85;">
+            <strong style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-white);">MediCore Tech</strong>
+            <strong style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-white);">Apex Logistics</strong>
+            <strong style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-white);">SkillBridge Edu</strong>
+            <strong style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--text-white);">FinFlow Micro</strong>
+          </div>
+        </div>
+
+        <!-- Case Studies Breakdown -->
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <div class="section-tag">Case Studies</div>
+          <h2 class="section-title">Client ➔ Problem ➔ Nconix Solution ➔ Outcome</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin-bottom: 4rem;" id="client-cases-grid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Callout Banner -->
+        <div class="glass-card emerald" style="text-align: center; padding: 3rem; border-color: rgba(16, 185, 129, 0.3);">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Become Our Next Success Story</h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+            Schedule a technical discovery call with our principal engineer to analyze your software or AI roadmap.
+          </p>
+          <a href="/contact.html" class="btn btn-primary btn-lg" style="background: var(--gradient-violet-emerald);">Talk to Nconix Engineering →</a>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

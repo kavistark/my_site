@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Live Online Classes & Schedule | Nconix Academy{% endblock %}
+
+{% block meta_description %}View upcoming interactive masterclasses and join live project sessions with certified Nconix trainers.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag emerald">Live Interactive Learning</div>
+          <h1 class="section-title">Upcoming <span class="gradient-text-emerald">Live Masterclasses</span></h1>
+          <p class="section-desc">Join real-time interactive lectures, hands-on lab walkthroughs, and Q&A sessions with senior Nconix architects.</p>
+        </div>
+
+        <!-- Live Calendar Container -->
+        <div class="glass-card" style="padding: 2.5rem; border-color: rgba(16, 185, 129, 0.3); margin-bottom: 4rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.4rem; color: var(--text-white); margin-bottom: 0.25rem;">Live Broadcast Calendar</h2>
+              <p style="font-size: 0.875rem; color: var(--text-muted);">Real-time stream links with Google Meet & Zoom room simulators.</p>
+            </div>
+            <span class="badge badge-emerald">Live Stream Connected</span>
+          </div>
+
+          <div id="live-classes-container">
+            <!-- Dynamically populated by academy.js -->
+          </div>
+        </div>
+
+        <!-- Integration Perks -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-bottom: 4rem;">
+          <div class="glass-card">
+            <h3 style="font-size: 1.2rem; color: var(--text-white); margin-bottom: 0.5rem;">Recorded HD Archives</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">All live masterclasses are recorded in full 1080p and available in your student portal within 2 hours with timestamped notes.</p>
+          </div>
+
+          <div class="glass-card violet">
+            <h3 style="font-size: 1.2rem; color: var(--text-white); margin-bottom: 0.5rem;">Live Code Debugging</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Share your screen or terminal during dedicated Q&A slots to resolve runtime exceptions and packet tracer bugs with mentors.</p>
+          </div>
+
+          <div class="glass-card emerald">
+            <h3 style="font-size: 1.2rem; color: var(--text-white); margin-bottom: 0.5rem;">Cloud Lab Sandboxes</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Instant access to pre-configured Jupyter notebook servers, FAISS vector databases, and virtual Cisco routers during class.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

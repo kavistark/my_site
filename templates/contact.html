@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact & Instant Quote Estimator | Nconix{% endblock %}
+
+{% block meta_description %}Get in touch with Nconix for custom software, AI development proposals, or academy course admissions.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Direct Engagement</div>
+          <h1 class="section-title">Start Your Next Venture With <span class="gradient-text">Nconix</span></h1>
+          <p class="section-desc">Whether you need an enterprise AI system built or want to level up your engineering skills through practical academy training.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+          <!-- Left: Business Project Calculator -->
+          <div class="glass-card" style="border-color: rgba(0, 240, 255, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.35rem; color: var(--text-white);">Business: Instant Quote Estimator</h2>
+              <span class="badge badge-cyan">Interactive</span>
+            </div>
+
+            <form id="quote-calculator-form">
+              <div class="form-group">
+                <label class="form-label" for="quote-service-select">Service Type</label>
+                <select class="form-control" id="quote-service-select">
+                  <option value="genai" selected>Generative AI & RAG Pipeline</option>
+                  <option value="software">Custom Software / Web Application</option>
+                  <option value="cv">Computer Vision & Gesture System</option>
+                  <option value="automation">Workflow Automation (n8n / APIs)</option>
+                  <option value="training">Corporate Tech Training Program</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="quote-scope-select">Project Scope</label>
+                <select class="form-control" id="quote-scope-select">
+                  <option value="prototype">Rapid Prototype / Proof of Concept</option>
+                  <option value="mvp" selected>Full MVP for Market Launch</option>
+                  <option value="enterprise">Enterprise Scaled Multi-Region Architecture</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Target Launch Timeline</label>
+                <div style="display: flex; gap: 1.5rem; font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.35rem;">
+                  <label><input type="radio" name="quote-timeline" value="standard" checked> Standard Velocity</label>
+                  <label><input type="radio" name="quote-timeline" value="urgent"> Accelerated Sprint</label>
+                </div>
+              </div>
+
+              <div style="background: rgba(0, 240, 255, 0.05); border: 1px solid var(--border-cyan); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Estimated Budget</span>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--cyan-accent);" id="quote-estimated-price">$6,500</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Estimated Delivery</span>
+                    <div style="font-size: 1.3rem; font-weight: 700; color: var(--text-white);" id="quote-estimated-weeks">5 Weeks</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Your Work Email</label>
+                <input type="email" class="form-control" placeholder="cto@company.com" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Request Full Engineering Proposal →
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Student Direct Enrollment Form -->
+          <div class="glass-card emerald" style="border-color: rgba(16, 185, 129, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.35rem; color: var(--text-white);">Students: Reserve Cohort Seat</h2>
+              <span class="badge badge-emerald">Admissions</span>
+            </div>
+
+            <form id="student-direct-enroll-form">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Alex Rivers" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="alex@gmail.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Interested Learning Track</label>
+                <select class="form-control">
+                  <option>Generative AI with Python & Autonomous Agents (12 Weeks)</option>
+                  <option>Python, Django & Modern Web Engineering (10 Weeks)</option>
+                  <option>CCNA & Enterprise Networking Mastery (8 Weeks)</option>
+                  <option>Computer Vision & Edge AI with OpenCV & PyTorch (8 Weeks)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Current Background</label>
+                <select class="form-control">
+                  <option>College Student / Fresh Graduate</option>
+                  <option>Working Software Engineer</option>
+                  <option>Career Transitioner</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--gradient-violet-emerald);">
+                Apply for Free Demo Session
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Direct Contact Details -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+          <div class="glass-card" style="text-align: center; padding: 1.5rem;">
+            <strong style="color: var(--text-white); display: block; margin-bottom: 0.25rem;">Headquarters</strong>
+            <span style="font-size: 0.85rem; color: var(--text-secondary);">Nconix Technologies • Global Operations</span>
+          </div>
+
+          <div class="glass-card" style="text-align: center; padding: 1.5rem;">
+            <strong style="color: var(--text-white); display: block; margin-bottom: 0.25rem;">Email Inquiries</strong>
+            <span style="font-size: 0.85rem; color: var(--cyan-accent); font-family: var(--font-mono);">contact@nconix.com</span>
+          </div>
+
+          <div class="glass-card" style="text-align: center; padding: 1.5rem;">
+            <strong style="color: var(--text-white); display: block; margin-bottom: 0.25rem;">Direct Engineering Line</strong>
+            <span style="font-size: 0.85rem; color: var(--emerald-accent); font-family: var(--font-mono);">+1 (800) NCONIX-AI</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

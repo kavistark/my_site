@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Knowledge Hub & Engineering Blog | Nconix{% endblock %}
+
+{% block meta_description %}Technical deep-dives on RAG vs Fine-tuning, CCNA subnetting cheat sheets, LangChain multi-agent systems, and Django REST best practices.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag violet">SEO & Technical Guides</div>
+          <h1 class="section-title">Knowledge Hub & <br><span class="gradient-text">Engineering Insights</span></h1>
+          <p class="section-desc">Pragmatic architectural whitepapers, interview preparation guides, code snippets, and quick reference cheatsheets.</p>
+        </div>
+
+        <!-- Category Tags -->
+        <div class="filter-tabs">
+          <button class="filter-btn active">All Articles</button>
+          <button class="filter-btn">AI & LLMs</button>
+          <button class="filter-btn">Python & Django</button>
+          <button class="filter-btn">CCNA & Networking</button>
+          <button class="filter-btn">Interview Prep</button>
+        </div>
+
+        <!-- Articles Grid Container -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;" id="blog-grid-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Quick Cheatsheet Banner -->
+        <div class="glass-card" style="padding: 2.5rem; border-color: rgba(139, 92, 246, 0.3);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+            <div>
+              <span class="badge badge-violet" style="margin-bottom: 0.5rem;">Free PDF Download</span>
+              <h2 style="font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Get the Complete CCNA & Python AI Cheatsheet</h2>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 540px;">
+                Download our 40-page reference handbook containing VLSM subnetting tables, LangChain templates, and Django REST snippets.
+              </p>
+            </div>
+            <button class="btn btn-primary" onclick="window.NconixApp.showToast('Downloaded Nconix Engineering Cheatsheet PDF!')">
+              Download Handbook
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

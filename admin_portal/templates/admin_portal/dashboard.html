@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+
+{% block title %}System Admin Control Center | Nconix{% endblock %}
+
+{% block meta_description %}Nconix Master Admin Portal: Central control center for managing enterprise client projects, student LMS cohorts, live chat desks, telemetry metrics, and platform operations.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <!-- Admin Header -->
+        <div class="section-header">
+          <div class="section-tag emerald">Master Administrator Hub</div>
+          <h1 class="section-title">Nconix <span class="gradient-text">Command Center</span></h1>
+          <p class="section-desc">Unified administrative control across Enterprise Client Projects, Student LMS Cohorts, Live Chat Messenger Desks, and Server Telemetry.</p>
+        </div>
+
+        <!-- Admin Quick Actions Bar -->
+        <div class="glass-card" style="padding: 1.5rem 2rem; margin-bottom: 2rem; border-color: rgba(16, 185, 129, 0.4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="badge badge-emerald" style="margin-bottom: 0.25rem;">Superuser Session Active</span>
+            <h2 style="font-size: 1.25rem; color: var(--text-white); margin: 0;">Full Platform Control & Database Access</h2>
+          </div>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="/admin/" target="_blank" class="btn btn-primary btn-sm" style="background: var(--gradient-emerald);">
+              ⚙️ Open Django Admin Suite (/admin/)
+            </a>
+            <a href="/client-portal/" class="btn btn-secondary btn-sm">
+              💼 Client Project Desk
+            </a>
+            <a href="/student-portal/" class="btn btn-secondary btn-sm">
+              🎓 Student LMS Desk
+            </a>
+          </div>
+        </div>
+
+        <!-- Platform Telemetry Metrics -->
+        <div class="dash-metrics-grid" style="margin-bottom: 2rem;">
+          <div class="metric-box">
+            <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div>
+              <div class="metric-val">2,418</div>
+              <div class="metric-lbl">Total Students Enrolled</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <div class="metric-val">18 Active</div>
+              <div class="metric-lbl">Enterprise Client Projects</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div>
+              <div class="metric-val">$148,000</div>
+              <div class="metric-lbl">Monthly Platform ARR</div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><rect width="18" height="18" x="3" y="3" rx="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="21"/></svg></div>
+            <div>
+              <div class="metric-val">99.99%</div>
+              <div class="metric-lbl">Cluster & API Health</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Master Administration Panels: Client Ops, Student Ops, and Live Messenger -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          
+          <!-- 1. Enterprise Client Projects Desk -->
+          <div class="glass-card" style="padding: 2rem; border-color: rgba(139, 92, 246, 0.35);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <div>
+                <span class="badge badge-violet" style="margin-bottom: 0.25rem;">Client Operations</span>
+                <h3 style="font-size: 1.2rem; color: var(--text-white); margin: 0;">Active Enterprise Project Queue</h3>
+              </div>
+              <span class="badge badge-cyan">Sprint 4 Active</span>
+            </div>
+
+            <div class="dash-list" style="margin-bottom: 1.5rem;">
+              <div class="dash-list-item">
+                <div>
+                  <strong style="color: var(--text-white); font-size: 0.95rem; display: block;">Apex Global: Private RAG Knowledge Engine</strong>
+                  <span style="font-size: 0.8125rem; color: var(--cyan-accent);">Sprint Progress: 75% • SLA: High</span>
+                </div>
+                <button class="btn btn-outline-cyan btn-sm" onclick="window.NconixApp.showToast('Updated Sprint progress to 80%. Notified client.')">
+                  Advance Sprint +5%
+                </button>
+              </div>
+
+              <div class="dash-list-item">
+                <div>
+                  <strong style="color: var(--text-white); font-size: 0.95rem; display: block;">OmniHealth: Computer Vision Defect Detection</strong>
+                  <span style="font-size: 0.8125rem; color: var(--emerald-accent);">Staging Build v1.8 Verified</span>
+                </div>
+                <span class="badge badge-emerald">QA Passed</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="/client-portal/" class="btn btn-outline-cyan btn-sm" style="flex: 1; text-align: center;">
+                Open Full Client Workspace →
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. Student Academy & Assignment Queue -->
+          <div class="glass-card" style="padding: 2rem; border-color: rgba(16, 185, 129, 0.35);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <div>
+                <span class="badge badge-emerald" style="margin-bottom: 0.25rem;">Academy Operations</span>
+                <h3 style="font-size: 1.2rem; color: var(--text-white); margin: 0;">Student Capstone Submissions</h3>
+              </div>
+              <span class="badge badge-emerald">3 Pending Reviews</span>
+            </div>
+
+            <div class="dash-list" style="margin-bottom: 1.5rem;">
+              <div class="dash-list-item">
+                <div>
+                  <strong style="color: var(--text-white); font-size: 0.95rem; display: block;">Alex M. (Generative AI with Python)</strong>
+                  <span style="font-size: 0.8125rem; color: var(--text-muted);">Repo: github.com/alex/rag-agent-assignment</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="background: var(--gradient-emerald);" onclick="window.NconixApp.showToast('Grade 100/100 recorded. Mentor feedback email dispatched to student.')">
+                  Approve & Grade 100
+                </button>
+              </div>
+
+              <div class="dash-list-item">
+                <div>
+                  <strong style="color: var(--text-white); font-size: 0.95rem; display: block;">Rahul S. (CCNA Enterprise Networking)</strong>
+                  <span style="font-size: 0.8125rem; color: var(--text-muted);">Packet Tracer: Multi-Area OSPF & VLANs</span>
+                </div>
+                <button class="btn btn-primary btn-sm" style="background: var(--gradient-emerald);" onclick="window.NconixApp.showToast('Certificate generated and emailed to student.')">
+                  Issue Certificate
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="/student-portal/" class="btn btn-outline-cyan btn-sm" style="flex: 1; text-align: center;">
+                Open Full Student LMS →
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Master Live Messenger Desk (Reply to Clients and Students) -->
+        <div class="glass-card" style="padding: 2rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-cyan" style="margin-bottom: 0.25rem;">Live Communication Hub</span>
+              <h3 style="font-size: 1.3rem; color: var(--text-white); margin: 0;">Real-Time Admin Chat Responder</h3>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Reply directly to Client inquiries and Student mentor questions in real time.</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-sm btn-primary" id="admin-chat-tab-client" onclick="switchAdminChatChannel('client_admin_chat', this)">
+                💼 Client Inquiries
+              </button>
+              <button class="btn btn-sm btn-secondary" id="admin-chat-tab-student" onclick="switchAdminChatChannel('student_mentor_chat', this)">
+                🎓 Student Q&A
+              </button>
+            </div>
+          </div>
+
+          <div class="portal-chat-box" style="height: 380px;">
+            <div class="portal-chat-header">
+              <div>
+                <span class="chat-online-indicator"></span>
+                <strong style="color: var(--text-white); font-size: 0.95rem;" id="admin-chat-channel-title">Active Channel: Enterprise Client Desk</strong>
+              </div>
+              <span class="badge badge-emerald">Live Socket</span>
+            </div>
+
+            <div class="portal-chat-messages" id="admin-chat-messages">
+              <!-- Dynamically populated via dashboard.js / api -->
+            </div>
+
+            <form id="admin-chat-form" class="portal-chat-input-row" onsubmit="handleAdminSendMessage(event)">
+              <input type="text" id="admin-chat-input" placeholder="Type official response as Administrator / Lead Architect..." required>
+              <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.65rem 1.2rem; background: var(--gradient-emerald);">
+                Reply as Admin →
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- System Activity Log Stream -->
+        <div class="dash-panel" style="margin-bottom: 4rem;">
+          <div class="dash-panel-header">
+            <div>
+              <span class="dash-panel-title">System Activity Stream</span>
+              <div style="font-size: 0.8125rem; color: var(--text-muted);">Real-time audit log of deployments, submissions, and authentications</div>
+            </div>
+            <span class="badge badge-emerald">Telemetry Online</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-secondary); line-height: 2;">
+            <div>[00:08:14] <span style="color: var(--emerald-accent);">SUPERUSER_INIT:</span> Superuser 'admin' session verified</div>
+            <div>[00:05:30] <span style="color: var(--cyan-accent);">CLIENT_REQUIREMENT:</span> Project requirement submitted: 'Enterprise Private RAG Pipeline'</div>
+            <div>[00:01:22] <span style="color: var(--emerald-accent);">DEPLOY_SUCCESS:</span> Staging cluster v2.4.0 active with 99.99% SLA</div>
+            <div>[23:55:05] <span style="color: var(--violet-accent);">LMS_ASSIGNMENT:</span> Student #1402 submitted assignment 'LangChain FAISS Pipeline'</div>
+            <div>[23:40:11] <span style="color: var(--cyan-accent);">AUTH_SUCCESS:</span> User logged into Nconix Command Center</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script>
+      let currentAdminChannel = 'client_admin_chat';
+
+      async function loadAdminChat(channel) {
+        currentAdminChannel = channel;
+        const container = document.getElementById('admin-chat-messages');
+        const title = document.getElementById('admin-chat-channel-title');
+        if (title) {
+          title.innerText = channel === 'client_admin_chat' ? 'Active Channel: Enterprise Client Desk' : 'Active Channel: Student LMS Mentor Desk';
+        }
+
+        try {
+          const resp = await fetch(`/api/portal/chat/?channel=${channel}`);
+          const data = await resp.json();
+          if (data.success && data.data && container) {
+            container.innerHTML = data.data.map(m => `
+              <div class="chat-msg ${m.sender_type}">
+                <div class="chat-msg-sender">${m.sender_name}</div>
+                <div class="chat-msg-bubble">${m.message}</div>
+                <div class="chat-msg-time">${new Date(m.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+              </div>
+            `).join("");
+            container.scrollTop = container.scrollHeight;
+          }
+        } catch (e) {
+          console.warn('Admin chat load failed:', e);
+        }
+      }
+
+      function switchAdminChatChannel(channel, btn) {
+        document.getElementById('admin-chat-tab-client').className = 'btn btn-sm btn-secondary';
+        document.getElementById('admin-chat-tab-student').className = 'btn btn-sm btn-secondary';
+        btn.className = 'btn btn-sm btn-primary';
+        loadAdminChat(channel);
+      }
+
+      async function handleAdminSendMessage(e) {
+        e.preventDefault();
+        const input = document.getElementById('admin-chat-input');
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        input.value = '';
+        try {
+          await fetch('/api/portal/chat/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              channel: currentAdminChannel,
+              sender_type: 'admin',
+              sender_name: 'Nconix Administrator (Admin)',
+              message: msg
+            })
+          });
+          loadAdminChat(currentAdminChannel);
+        } catch (err) {
+          console.warn('Admin send message failed:', err);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        loadAdminChat('client_admin_chat');
+      });
+    </script>
+{% endblock %}

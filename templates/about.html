@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}About Nconix | Technology Company, Vision & Engineering Philosophy{% endblock %}
+
+{% block meta_description %}Learn about Nconix — our mission, vision, values, technical expertise, and why enterprises and learners choose us.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">About Company</div>
+          <h1 class="section-title">Engineering the Future of <br><span class="gradient-text">Software, AI & Education</span></h1>
+          <p class="section-desc">Nconix is a technology company focused on software development, artificial intelligence, automation, and practical technology education.</p>
+        </div>
+
+        <!-- Who We Are -->
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center; margin-bottom: 4.5rem;">
+          <div class="glass-card" style="padding: 2.5rem;">
+            <h2 style="font-size: 1.6rem; color: var(--text-white); margin-bottom: 1rem;">Who We Are</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 1.5rem;">
+              Nconix is a modern technology powerhouse operating at the intersection of custom software development, enterprise AI application engineering, and real-world developer education. 
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+              We don't merely build apps or teach abstract syntax—we build production-ready systems and run live project cohorts that bridge the gap between academic theory and enterprise engineering requirements.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="glass-card" style="border-color: rgba(0, 240, 255, 0.3);">
+              <h3 style="font-size: 1.25rem; color: var(--cyan-accent); margin-bottom: 0.5rem;">Our Mission</h3>
+              <blockquote style="font-size: 0.95rem; line-height: 1.7; color: #f1f5f9; font-style: italic;">
+                "To make advanced technology accessible to businesses, students, and professionals through practical software solutions and industry-focused education."
+              </blockquote>
+            </div>
+
+            <div class="glass-card violet" style="border-color: rgba(139, 92, 246, 0.3);">
+              <h3 style="font-size: 1.25rem; color: #c4b5fd; margin-bottom: 0.5rem;">Our Vision</h3>
+              <blockquote style="font-size: 0.95rem; line-height: 1.7; color: #f1f5f9; font-style: italic;">
+                "To become a technology ecosystem where businesses build, students learn, and innovators create."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <div class="section-tag violet">Our Principles</div>
+          <h2 class="section-title">Why Choose Nconix</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-bottom: 4.5rem;">
+          <div class="glass-card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Practical, Project-First</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Everything we construct is verifiable in code, tested in CI/CD pipelines, and deployed for actual production workloads.</p>
+          </div>
+
+          <div class="glass-card violet">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Frontier AI Specialization</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Deep focus on Retrieval-Augmented Generation (RAG), Autonomous Agent orchestration, and low-latency computer vision models.</p>
+          </div>
+
+          <div class="glass-card emerald">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Next-Gen Education</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Our academy mentors are active senior engineers who train developers on actual industry architectures and Cisco networking sandboxes.</p>
+          </div>
+        </div>
+
+        <!-- Quick CTA -->
+        <div class="glass-card" style="text-align: center; padding: 3rem; border-color: rgba(0, 240, 255, 0.3);">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Ready to Build or Learn with Nconix?</h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+            Whether you are an enterprise seeking an AI solution or an aspiring engineer looking for live mentorship.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="/contact.html" class="btn btn-primary btn-lg">Talk to Nconix</a>
+            <a href="/academy.html" class="btn btn-secondary btn-lg">Explore Academy</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

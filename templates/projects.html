@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Production Projects & Architecture | Nconix{% endblock %}
+
+{% block meta_description %}Explore Nconix's production projects: AI Document Assistant, Indian Sign Language Recognition, Networking Lab Simulator, and Workflow Automation.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Production Systems</div>
+          <h1 class="section-title">Our Featured <span class="gradient-text">Projects & Architectures</span></h1>
+          <p class="section-desc">Production-deployed software, private RAG engines, computer vision prototypes, and enterprise networking lab simulators.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-project-filter="all">All Projects</button>
+          <button class="filter-btn" data-project-filter="genai">Generative AI / RAG</button>
+          <button class="filter-btn" data-project-filter="cv">Computer Vision</button>
+          <button class="filter-btn" data-project-filter="software">Software Engineering</button>
+          <button class="filter-btn" data-project-filter="networking">Networking & Labs</button>
+          <button class="filter-btn" data-project-filter="automation">Automation</button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div class="projects-grid" id="projects-grid-container" style="margin-bottom: 4rem;">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="glass-card" style="text-align: center; padding: 3rem; border-color: rgba(0, 240, 255, 0.3);">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Have a Custom Software or AI Project in Mind?</h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+            We can architect and deliver your minimum viable product or enterprise system with fast iteration cycles.
+          </p>
+          <a href="/contact.html" class="btn btn-primary btn-lg">Request Custom Architecture Proposal →</a>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

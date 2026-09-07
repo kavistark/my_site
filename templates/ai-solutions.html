@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Nconix AI | Production RAG, Autonomous Agents & Computer Vision{% endblock %}
+
+{% block meta_description %}Explore Nconix AI Solutions: Interactive RAG pipeline visualizer, autonomous multi-step reasoning agents, and computer vision systems.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag violet">Dedicated AI Center</div>
+          <h1 class="section-title">Nconix AI: <span class="gradient-text">Intelligent Applications</span></h1>
+          <p class="section-desc">Transform your enterprise knowledge into active intelligence with private RAG, autonomous agents, and computer vision.</p>
+        </div>
+
+        <!-- Interactive RAG Visualizer Component -->
+        <div class="rag-visualizer-container" style="margin-bottom: 4rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.25rem;">Interactive RAG Pipeline Inspector</h2>
+              <p style="font-size: 0.875rem; color: var(--text-muted);">Step through the 7 stages of our production Retrieval-Augmented Generation engine.</p>
+            </div>
+            <span class="badge badge-cyan">Live Interactive Inspector</span>
+          </div>
+
+          <div class="rag-flow-track" id="rag-flow-track"></div>
+          <div class="rag-inspector-panel" id="rag-inspector-panel"></div>
+        </div>
+
+        <!-- AI Deep Capabilities Grid -->
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <div class="section-tag">Capabilities</div>
+          <h2 class="section-title">Core AI Technology Pillars</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+          <div class="glass-card violet">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Generative AI & LLM Systems</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <li>▹ Enterprise Chatbots with Strict Guardrails</li>
+              <li>▹ Multi-Document Citation Q&A</li>
+              <li>▹ Structured JSON Data Extraction from Text</li>
+              <li>▹ Automated Technical Content Generation</li>
+            </ul>
+          </div>
+
+          <div class="glass-card">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Autonomous AI Agents</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <li>▹ Dynamic Tool Usage & Function Calling</li>
+              <li>▹ Multi-Step Reasoning & Chain of Thought</li>
+              <li>▹ API Execution & Database Querying</li>
+              <li>▹ Persistent Conversation & Memory State</li>
+            </ul>
+          </div>
+
+          <div class="glass-card emerald">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Computer Vision & Video</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <li>▹ Indian Sign Language (ISL) Video Recognition</li>
+              <li>▹ Real-Time Skeletal Joint Angle Tracking</li>
+              <li>▹ Edge Inference with YOLOv8 & ONNX</li>
+              <li>▹ Industrial Defect Detection & Quality Control</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Callout Banner -->
+        <div class="glass-card" style="text-align: center; padding: 3rem; border-color: rgba(139, 92, 246, 0.3);">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Deploy a Private AI Solution for Your Enterprise</h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+            Ensure zero data leakage with on-premise or private cloud vector storage and dedicated LLM inference endpoints.
+          </p>
+          <a href="/contact.html" class="btn btn-primary btn-lg" style="background: var(--gradient-cyan-violet);">Request AI Consultation →</a>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

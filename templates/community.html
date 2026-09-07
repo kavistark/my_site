@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Developer Community & Hackathons | Nconix{% endblock %}
+
+{% block meta_description %}Join 5,000+ software developers and AI builders in the Nconix Community. Participate in hackathons, share open-source repos, and attend tech events.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Global Builder Network</div>
+          <h1 class="section-title">The <span class="gradient-text">Nconix Community</span></h1>
+          <p class="section-desc">Join 5,000+ developers, AI researchers, and networking engineers building projects and sharing open knowledge.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+          <div class="glass-card" style="text-align: center; padding: 2.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Official Discord</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              Daily architecture debates, pair programming channels, and live code debugging with Nconix leads.
+            </p>
+            <button class="btn btn-primary btn-sm" onclick="window.NconixApp.showToast('Redirecting to Discord Community...')">
+              Join Discord Server →
+            </button>
+          </div>
+
+          <div class="glass-card violet" style="text-align: center; padding: 2.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Monthly AI Hackathons</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              Compete in 48-hour build challenges with free GPU credits, cash prizes, and feedback from industry judges.
+            </p>
+            <button class="btn btn-outline-violet btn-sm" onclick="window.NconixApp.showToast('Registered for upcoming monthly Hackathon!')">
+              View Next Hackathon →
+            </button>
+          </div>
+
+          <div class="glass-card emerald" style="text-align: center; padding: 2.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Open Source Hub</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+              Contribute to open-source LangChain tools, Django starter templates, and Packet Tracer automation scripts.
+            </p>
+            <button class="btn btn-outline-cyan btn-sm" onclick="window.NconixApp.showToast('Opening GitHub organization...')">
+              Explore GitHub Orgs →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviews & Graduate Success Stories | Nconix{% endblock %}
+
+{% block meta_description %}Read reviews and testimonials from enterprise software clients and alumni graduates who transitioned into AI and software engineering roles.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Verified Feedback</div>
+          <h1 class="section-title">Client Reviews & <span class="gradient-text">Graduate Stories</span></h1>
+          <p class="section-desc">Discover how Nconix helps businesses build resilient software and empowers students to master real-world engineering skills.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-bottom: 4rem;" id="testimonials-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Student Career Pathway Matrix -->
+        <div class="glass-card" style="padding: 2.5rem; border-color: rgba(0, 240, 255, 0.3); margin-bottom: 4rem;">
+          <h2 style="font-size: 1.5rem; color: var(--text-white); margin-bottom: 1.5rem; text-align: center;">
+            The Student Success Formula: <span style="color: var(--cyan-accent);">Course ➔ Project ➔ Skills ➔ Outcome</span>
+          </h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">1.</div>
+              <strong style="color: var(--text-white); display: block; margin-bottom: 0.25rem;">Live Rigorous Cohort</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">10-12 weeks of live interactive code walkthroughs.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">2.</div>
+              <strong style="color: var(--text-white); display: block; margin-bottom: 0.25rem;">Capstone Repositories</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Build 3+ production GitHub repos with Docker & CI/CD.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">3.</div>
+              <strong style="color: var(--text-white); display: block; margin-bottom: 0.25rem;">Architect Code Review</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Line-by-line pull request audits by senior developers.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">4.</div>
+              <strong style="color: var(--emerald-accent); display: block; margin-bottom: 0.25rem;">Career Transition</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Land roles as AI Engineers, Backend Leads & Cloud DevOps.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

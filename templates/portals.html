@@ -1,0 +1,413 @@
+{% extends 'base.html' %}
+
+{% block title %}Client & Student Portals | Nconix{% endblock %}
+
+{% block meta_description %}Access dedicated Nconix workspaces: Enterprise Client Project & Requirement Desk, Student Academy LMS, and Admin Telemetry Hub.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag violet">Dedicated Workspaces</div>
+          <h1 class="section-title">Nconix <span class="gradient-text">Role-Based Portals</span></h1>
+          <p class="section-desc">Separate, secure portals for enterprise clients to manage projects, submit requirements, and chat with architects, and for students to master technical curriculum.</p>
+        </div>
+
+        <!-- Interactive In-Page Auth & Role Access Gate -->
+        <div class="glass-card" style="padding: 1.75rem 2rem; margin-bottom: 2rem; border-color: rgba(0, 240, 255, 0.3);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+            <div>
+              <span class="badge badge-cyan" style="margin-bottom: 0.35rem;">Portal Selection & Authentication</span>
+              <h2 style="font-size: 1.3rem; color: var(--text-white); margin-bottom: 0.25rem;">Switch Between Client & Student Desks</h2>
+              <p style="font-size: 0.875rem; color: var(--text-secondary);">Select your portal below to access project requirements, live chat, or academy courses.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button type="button" onclick="window.NconixApp.openLoginModal('client')" class="btn btn-secondary btn-sm">💼 Client Sign In</button>
+              <button type="button" onclick="window.NconixApp.openRegisterModal('client')" class="btn btn-outline-cyan btn-sm">💼 Client Register</button>
+              <button type="button" onclick="window.NconixApp.openLoginModal('student')" class="btn btn-primary btn-sm">🎓 Student Sign In</button>
+              <button type="button" onclick="window.NconixApp.openRegisterModal('student')" class="btn btn-outline-cyan btn-sm">🎓 Student Register</button>
+            </div>
+          </div>
+
+          <!-- Quick 1-Click Role Switcher -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.8125rem; color: var(--text-muted);">
+            <span>⚡ Active Workspace View:</span>
+            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('client')" class="badge badge-violet" style="cursor: pointer; border: 1px solid rgba(139, 92, 246, 0.4); padding: 0.4rem 0.8rem;">💼 Enterprise Client Portal (Projects & Chat Only)</button>
+            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('student')" class="badge badge-cyan" style="cursor: pointer; border: 1px solid var(--border-cyan); padding: 0.4rem 0.8rem;">🎓 Student Academy Portal (Courses & Labs Only)</button>
+            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('admin')" class="badge badge-emerald" style="cursor: pointer; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.4rem 0.8rem;">⚡ System Admin Desk</button>
+          </div>
+        </div>
+
+        <!-- Dashboard Container -->
+        <div class="dashboard-container" style="margin-bottom: 4rem;">
+          <div class="dashboard-nav-tabs">
+            <button class="dash-tab-btn violet active" data-dash-role="client">
+              💼 Enterprise Client Portal
+            </button>
+            <button class="dash-tab-btn" data-dash-role="student">
+              🎓 Student LMS Academy Portal
+            </button>
+            <button class="dash-tab-btn emerald" data-dash-role="admin">
+              ⚡ System Admin Hub
+            </button>
+          </div>
+
+          <div class="dashboard-body">
+
+            <!-- ===============================================================
+                 1. CLIENT PORTAL (PROJECTS, REQUIREMENTS & CHAT ONLY)
+                 =============================================================== -->
+            <div class="dash-view active" data-dash-view="client">
+              <!-- Client Metrics -->
+              <div class="dash-metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+                  <div>
+                    <div class="metric-val">2 Projects</div>
+                    <div class="metric-lbl">Active Development</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                  <div>
+                    <div class="metric-val">Sprint 4</div>
+                    <div class="metric-lbl">75% Milestone Complete</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div>
+                    <div class="metric-val">99.98%</div>
+                    <div class="metric-lbl">Staging API Uptime</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div>
+                    <div class="metric-val">&lt; 15 min</div>
+                    <div class="metric-lbl">Lead Architect SLA</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Client Portal Content Grid: Projects on Left, Chat on Right -->
+              <div class="dash-layout-split" style="margin-bottom: 2.5rem;">
+                <!-- Left: Active Projects & Sprint Deliverables -->
+                <div>
+                  <div class="dash-panel" style="margin-bottom: 2rem;">
+                    <div class="dash-panel-header">
+                      <div>
+                        <span class="dash-panel-title">Active Project Status & Sprints</span>
+                        <div style="font-size: 0.8125rem; color: var(--text-muted);">Real-time progress on scoped architecture deliverables</div>
+                      </div>
+                      <span class="badge badge-cyan">Live Updates</span>
+                    </div>
+
+                    <div id="client-projects-list">
+                      <!-- Dynamically loaded from /api/portal/requirements/ -->
+                    </div>
+                  </div>
+
+                  <!-- Submit Project Requirement Form -->
+                  <div class="glass-card" style="padding: 2rem; border-color: rgba(139, 92, 246, 0.3);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                      <div>
+                        <h3 style="font-size: 1.25rem; color: var(--text-white); margin-bottom: 0.25rem;">➕ Submit Project Requirement / Scope Change</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">Directly submit new feature specifications, user stories, or RAG pipeline extensions to our engineering leads.</p>
+                      </div>
+                      <span class="badge badge-violet">Requirements Desk</span>
+                    </div>
+
+                    <form id="submit-requirement-form">
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Project / Feature Title</label>
+                          <input type="text" id="req-project-name" class="form-control" placeholder="e.g. Document Vector Indexing Microservice" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Solution Category</label>
+                          <select id="req-category" class="form-control">
+                            <option value="Enterprise RAG & AI">Enterprise RAG & AI Agents</option>
+                            <option value="Custom Software & Web App">Custom Software & Web App</option>
+                            <option value="Computer Vision & Video Analytics">Computer Vision & Video Analytics</option>
+                            <option value="Cloud Architecture & CI/CD">Cloud Architecture & CI/CD</option>
+                            <option value="API & System Integration">API & System Integration</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Contact Person</label>
+                          <input type="text" id="req-client-name" class="form-control" placeholder="Jane Doe" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Work Email</label>
+                          <input type="email" id="req-client-email" class="form-control" placeholder="jane@company.com" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Company Name</label>
+                          <input type="text" id="req-company" class="form-control" placeholder="Acme Logistics">
+                        </div>
+                      </div>
+
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Priority Level</label>
+                          <select id="req-priority" class="form-control">
+                            <option value="standard">Standard Priority</option>
+                            <option value="high" selected>High Priority (Sprint Inclusion)</option>
+                            <option value="urgent">Urgent / Blocker Resolution</option>
+                          </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                          <label class="form-label">Target Delivery Timeline</label>
+                          <input type="text" id="req-timeline" class="form-control" placeholder="e.g. 3-4 Weeks" value="4 Weeks">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label">Detailed Technical Scope & Requirements</label>
+                        <textarea id="req-desc" class="form-control" rows="4" placeholder="Describe the problem, input data schema, desired API endpoints, latency expectations, and integration constraints..." required></textarea>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--gradient-cyan-violet);">
+                        Submit Requirement to Engineering Team →
+                      </button>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- Right: Interactive Live Client-Admin Chat Messenger -->
+                <div>
+                  <div class="portal-chat-box">
+                    <div class="portal-chat-header">
+                      <div>
+                        <div style="display: flex; align-items: center;">
+                          <span class="chat-online-indicator"></span>
+                          <strong style="color: var(--text-white); font-size: 0.95rem;">Lead Architect & PM Desk</strong>
+                        </div>
+                        <span style="font-size: 0.75rem; color: var(--emerald-accent);">Direct Engineering Channel</span>
+                      </div>
+                      <span class="badge badge-cyan">24/7 SLA</span>
+                    </div>
+
+                    <div class="portal-chat-messages" id="client-chat-messages">
+                      <!-- Dynamically loaded from /api/portal/chat/ -->
+                    </div>
+
+                    <form id="client-chat-form" class="portal-chat-input-row">
+                      <input type="text" id="client-chat-input" placeholder="Type message to lead architect..." required>
+                      <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.65rem 1rem;">Send</button>
+                    </form>
+                  </div>
+
+                  <!-- Quick Action Shortcuts -->
+                  <div class="glass-card" style="padding: 1.25rem; margin-top: 1.25rem;">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.75rem;">Quick Project Actions</span>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                      <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Triggering Staging API Re-deploy...')">
+                        🚀 Request Staging API Re-deploy
+                      </button>
+                      <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Downloading NDA & Architecture Agreement (PDF)...')">
+                        📄 Download Project NDA & SLA Specs
+                      </button>
+                      <button class="btn btn-outline-cyan btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.NconixApp.showToast('Scheduling Sprint Review on Google Meet...')">
+                        📅 Schedule 1-on-1 Sprint Review Call
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===============================================================
+                 2. STUDENT PORTAL (ACADEMY, COURSES, LABS & MENTOR CHAT ONLY)
+                 =============================================================== -->
+            <div class="dash-view" data-dash-view="student">
+              <!-- Student Metrics -->
+              <div class="dash-metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                  <div>
+                    <div class="metric-val">2 Active</div>
+                    <div class="metric-lbl">Enrolled Courses</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div>
+                    <div class="metric-val">84%</div>
+                    <div class="metric-lbl">Syllabus Progress</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></div>
+                  <div>
+                    <div class="metric-val">3 Completed</div>
+                    <div class="metric-lbl">Project Repositories</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+                  <div>
+                    <div class="metric-val">1 Verified</div>
+                    <div class="metric-lbl">CCNA Certificate</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Student Layout -->
+              <div class="dash-layout-split" style="margin-bottom: 2.5rem;">
+                <!-- Left: Syllabus, Live Class, Assignment Submission -->
+                <div>
+                  <!-- Active Learning Track -->
+                  <div class="dash-panel" style="margin-bottom: 1.5rem;">
+                    <div class="dash-panel-header">
+                      <div>
+                        <span class="dash-panel-title">Active Academy Track</span>
+                        <div style="font-size: 0.8125rem; color: var(--text-muted);">Generative AI with Python & Autonomous Agents</div>
+                      </div>
+                      <span class="badge badge-cyan">Week 7 of 12</span>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                      <div style="display: flex; justify-content: space-between; font-size: 0.8125rem; margin-bottom: 0.35rem;">
+                        <span style="color: var(--text-muted);">Overall Course Completion:</span>
+                        <span style="color: var(--cyan-accent); font-weight: 700;">84%</span>
+                      </div>
+                      <div class="progress-container">
+                        <div class="progress-fill" style="width: 84%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="dash-list">
+                      <div class="dash-list-item">
+                        <div>
+                          <strong style="color: var(--text-white); font-size: 0.9rem; display: block;">Module 1-6: Embeddings, Vector Databases & FAISS</strong>
+                          <span style="font-size: 0.775rem; color: var(--emerald-accent);">✓ Completed & Code Approved</span>
+                        </div>
+                        <span class="badge badge-emerald">100%</span>
+                      </div>
+                      <div class="dash-list-item">
+                        <div>
+                          <strong style="color: var(--text-white); font-size: 0.9rem; display: block;">Module 7: Multi-Agent Tool Calling with LangGraph</strong>
+                          <span style="font-size: 0.775rem; color: var(--cyan-accent);">Current Assignment</span>
+                        </div>
+                        <span class="badge badge-cyan">In Progress</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Assignment Submission Sandbox -->
+                  <div class="glass-card" style="padding: 1.75rem; border-color: rgba(0, 240, 255, 0.25);">
+                    <h3 style="font-size: 1.15rem; color: var(--text-white); margin-bottom: 0.5rem;">Submit Capstone GitHub Repository</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Paste your assignment repository link for automated AST test evaluation and mentor code review.</p>
+
+                    <div style="display: flex; gap: 0.75rem;">
+                      <input type="url" id="student-repo-input" class="form-control" placeholder="https://github.com/username/rag-agent-assignment" style="flex: 1;">
+                      <button class="btn btn-primary btn-sm" onclick="window.NconixApp.showToast('✓ Repository submitted! Automated test suite running (9/9 passed). Mentor review scheduled.')">
+                        Submit Repo
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Live Class Room & Mentor Chat -->
+                <div>
+                  <!-- Next Live Class Room Entry -->
+                  <div class="dash-panel" style="margin-bottom: 1.5rem; border-color: rgba(16, 185, 129, 0.3);">
+                    <div class="dash-panel-header">
+                      <span class="dash-panel-title">Next Live Classroom</span>
+                      <span class="badge badge-emerald">Tomorrow 7:00 PM</span>
+                    </div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.35rem;">
+                      Advanced Multi-Agent Reasoning & Tool Calling
+                    </div>
+                    <div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 1rem;">
+                      Trainer: A. Sharma • Live Code Sandbox Included
+                    </div>
+                    <button class="btn btn-primary btn-sm" style="width: 100%; background: var(--gradient-violet-emerald);" onclick="window.NconixApp.showToast('Entering Live Google Meet Virtual Classroom...')">
+                      Enter Live Classroom →
+                    </button>
+                  </div>
+
+                  <!-- Student-Mentor Q&A Chat -->
+                  <div class="portal-chat-box">
+                    <div class="portal-chat-header">
+                      <div>
+                        <div style="display: flex; align-items: center;">
+                          <span class="chat-online-indicator"></span>
+                          <strong style="color: var(--text-white); font-size: 0.95rem;">Academy Mentor Q&A</strong>
+                        </div>
+                        <span style="font-size: 0.75rem; color: var(--cyan-accent);">P. Verma (Senior AI Instructor)</span>
+                      </div>
+                      <span class="badge badge-emerald">Online</span>
+                    </div>
+
+                    <div class="portal-chat-messages" id="student-chat-messages">
+                      <!-- Dynamically loaded from /api/portal/chat/?channel=student_mentor_chat -->
+                    </div>
+
+                    <form id="student-chat-form" class="portal-chat-input-row">
+                      <input type="text" id="student-chat-input" placeholder="Ask your mentor a technical question..." required>
+                      <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.65rem 1rem;">Send</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===============================================================
+                 3. ADMIN VIEW (SYSTEM TELEMETRY & APPROVALS)
+                 =============================================================== -->
+            <div class="dash-view" data-dash-view="admin">
+              <div class="dash-metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div>
+                    <div class="metric-val">2,418</div>
+                    <div class="metric-lbl">Total Students</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+                  <div>
+                    <div class="metric-val">18 Active</div>
+                    <div class="metric-lbl">Enterprise Clients</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                  <div>
+                    <div class="metric-val">$148,000</div>
+                    <div class="metric-lbl">Monthly ARR</div>
+                  </div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-md"><rect width="18" height="18" x="3" y="3" rx="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="21"/></svg></div>
+                  <div>
+                    <div class="metric-val">99.99%</div>
+                    <div class="metric-lbl">Cluster Infrastructure</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dash-panel">
+                <div class="dash-panel-header">
+                  <span class="dash-panel-title">System Activity Stream</span>
+                  <span class="badge badge-emerald">Healthy</span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.8;">
+                  <div>[16:45:10] <span style="color: var(--cyan-accent);">CLIENT_REQUIREMENT:</span> New project scope submitted: 'Enterprise Private RAG Pipeline'</div>
+                  <div>[16:30:22] <span style="color: var(--emerald-accent);">DEPLOY_SUCCESS:</span> Staging cluster v2.4.0 active with 99.98% SLA</div>
+                  <div>[16:15:05] <span style="color: var(--violet-accent);">LMS_ASSIGNMENT:</span> Student #1402 submitted assignment 'LangChain FAISS Pipeline'</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

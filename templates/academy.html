@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Nconix Academy | Learn Technology by Building Real Projects{% endblock %}
+
+{% block meta_description %}Nconix Academy offers project-first practical courses in Generative AI, Python Full Stack, CCNA Networking, and Computer Vision.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 2rem);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Industry-Driven Education</div>
+          <h1 class="section-title">Nconix Academy: <br><span class="gradient-text">Learn Technology By Building</span></h1>
+          <p class="section-desc">Practical project-based cohorts, live instructor mentoring, Packet Tracer labs, and capstones taught by active software engineers.</p>
+        </div>
+
+        <!-- 4 Core Academy Tracks -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
+          <div class="glass-card" style="padding: 1.5rem; border-color: rgba(0, 240, 255, 0.3);">
+            <h3 style="font-size: 1.15rem; color: var(--text-white); margin-bottom: 0.25rem;">Programming & Dev</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Python, Django REST, PostgreSQL, Git, and Docker containerization.</p>
+          </div>
+
+          <div class="glass-card violet" style="padding: 1.5rem; border-color: rgba(139, 92, 246, 0.3);">
+            <h3 style="font-size: 1.15rem; color: var(--text-white); margin-bottom: 0.25rem;">AI & Data Science</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Generative AI, LangChain, RAG architectures, Agent workflows, and PyTorch.</p>
+          </div>
+
+          <div class="glass-card emerald" style="padding: 1.5rem; border-color: rgba(16, 185, 129, 0.3);">
+            <h3 style="font-size: 1.15rem; color: var(--text-white); margin-bottom: 0.25rem;">Networking & CCNA</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">OSI, Subnetting, Routing/Switching, Cisco Packet Tracer, and Netmiko automation.</p>
+          </div>
+
+          <div class="glass-card" style="padding: 1.5rem; border-color: rgba(245, 158, 11, 0.3);">
+            <h3 style="font-size: 1.15rem; color: var(--text-white); margin-bottom: 0.25rem;">Computer Vision</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">OpenCV, MediaPipe landmark detection, YOLOv8, and gesture translation systems.</p>
+          </div>
+        </div>
+
+        <!-- Course Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-course-filter="all">All Programs</button>
+          <button class="filter-btn" data-course-filter="ai">AI & Data Science</button>
+          <button class="filter-btn" data-course-filter="programming">Programming & Dev</button>
+          <button class="filter-btn" data-course-filter="networking">Networking & CCNA</button>
+        </div>
+
+        <!-- Course Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;" id="academy-courses-grid">
+          <!-- Dynamically populated by academy.js -->
+        </div>
+
+        <!-- Direct Admission Application -->
+        <div class="glass-card emerald" style="padding: 3rem; border-color: rgba(16, 185, 129, 0.3);">
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center;">
+            <div>
+              <span class="badge badge-emerald" style="margin-bottom: 0.75rem;">Cohort Registration</span>
+              <h2 style="font-size: 1.8rem; color: var(--text-white); margin-bottom: 1rem;">Apply for a Free Live Demo Class</h2>
+              <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 1.5rem;">
+                Experience our interactive live classroom setup, meet the engineering instructors, and get answers about curriculum and project roadmaps.
+              </p>
+              <a href="/live-classes.html" class="btn btn-outline-cyan btn-sm">View Upcoming Live Schedule</a>
+            </div>
+
+            <form id="student-direct-enroll-form">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Jane Doe" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="jane@domain.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Track of Interest</label>
+                <select class="form-control">
+                  <option>Generative AI with Python & Autonomous Agents</option>
+                  <option>Python, Django & Modern Web Engineering</option>
+                  <option>CCNA & Enterprise Networking Mastery</option>
+                  <option>Computer Vision & Edge AI</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--gradient-violet-emerald);">
+                Claim Free Demo Seat
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{% endblock %}

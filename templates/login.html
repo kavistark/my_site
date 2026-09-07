@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign In | Nconix Portal Authentication{% endblock %}
+
+{% block meta_description %}Sign in to your Nconix workspace. Access the Student LMS, Enterprise Client Project Desk, or System Admin Hub.{% endblock %}
+
+{% block content %}
+    <section class="section" style="padding-top: calc(var(--header-height) + 3rem); min-height: 80vh; display: flex; align-items: center;">
+      <div class="container" style="max-width: 520px; margin: 0 auto;">
+        <div class="glass-card" style="padding: 2.5rem; border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);">
+          
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <div class="brand-icon" style="margin: 0 auto 1rem; width: 48px; height: 48px; font-size: 1.5rem;">
+              <svg viewBox="0 0 24 24" style="width: 28px; height: 28px;">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">Secure Portal Access</span>
+            <h1 style="font-size: 2rem; color: var(--text-white); margin-bottom: 0.35rem;">Sign In to <span class="gradient-text">Nconix</span></h1>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Access your tailored LMS, Client Sprint Desk, or System Admin workspace.</p>
+          </div>
+
+          <!-- Role Selection Tabs -->
+          <div style="display: flex; gap: 0.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-glass); padding: 0.35rem; border-radius: var(--radius-sm); margin-bottom: 1.75rem;" id="page-auth-role-tabs">
+            <button type="button" class="btn btn-sm btn-primary" style="flex: 1; font-size: 0.8125rem;" onclick="setPageAuthRole('student', this)">🎓 Student LMS</button>
+            <button type="button" class="btn btn-sm btn-secondary" style="flex: 1; font-size: 0.8125rem;" onclick="setPageAuthRole('client', this)">💼 Client Desk</button>
+            <button type="button" class="btn btn-sm btn-secondary" style="flex: 1; font-size: 0.8125rem;" onclick="setPageAuthRole('admin', this)">⚡ System Admin</button>
+          </div>
+
+          <div id="page-auth-error" style="display:none;background:rgba(239,68,68,0.15);border:1px solid #ef4444;color:#fca5a5;padding:0.75rem 1rem;border-radius:var(--radius-sm);font-size:0.875rem;margin-bottom:1.5rem;"></div>
+
+          <form id="page-login-form" onsubmit="handlePageLogin(event)">
+            <input type="hidden" id="page-login-role" name="role" value="student">
+
+            <div class="form-group">
+              <label class="form-label" for="page-login-user">Email Address or Username</label>
+              <input type="text" class="form-control" id="page-login-user" name="username" placeholder="alex@company.com" required autofocus>
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <label class="form-label" for="page-login-pass" style="margin-bottom: 0;">Password</label>
+                <a href="javascript:void(0)" onclick="window.NconixApp.showToast('Password reset link sent to your registered email.')" style="font-size: 0.775rem; color: var(--cyan-accent);">Forgot password?</a>
+              </div>
+              <div style="position: relative;">
+                <input type="password" class="form-control" id="page-login-pass" name="password" placeholder="••••••••" required style="padding-right: 2.5rem;">
+                <button type="button" onclick="togglePassVisibility('page-login-pass', this)" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center;">
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+              <input type="checkbox" id="page-remember" checked style="accent-color: var(--cyan-accent); cursor: pointer;">
+              <label for="page-remember" style="cursor: pointer;">Keep me signed in on this device</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="page-login-btn" style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 700;">
+              Sign In to Workspace →
+            </button>
+          </form>
+
+          <div style="text-align: center; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.875rem; color: var(--text-muted);">
+            Don't have an account yet? 
+            <a href="/register.html" style="color: var(--cyan-accent); font-weight: 700;">Create Account (Register)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function setPageAuthRole(role, btn) {
+        document.getElementById('page-login-role').value = role;
+        const parent = document.getElementById('page-auth-role-tabs');
+        if (parent) {
+          parent.querySelectorAll('button').forEach(b => {
+            b.className = 'btn btn-sm btn-secondary';
+          });
+          btn.className = 'btn btn-sm btn-primary';
+        }
+      }
+
+      function togglePassVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        if (input.type === 'password') {
+          input.type = 'text';
+          btn.innerText = '🔒';
+        } else {
+          input.type = 'password';
+          btn.innerText = '👁️';
+        }
+      }
+
+      async function handlePageLogin(e) {
+        e.preventDefault();
+        const form = e.target;
+        const errorBox = document.getElementById('page-auth-error');
+        const submitBtn = document.getElementById('page-login-btn');
+
+        if (errorBox) errorBox.style.display = 'none';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Authenticating...';
+        }
+
+        const payload = {
+          username: form.username.value,
+          password: form.password.value,
+          role: form.role ? form.role.value : 'student'
+        };
+
+        try {
+          const resp = await fetch('/api/auth/login/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await resp.json();
+
+          if (data.success) {
+            if (window.NconixApp) {
+              window.NconixApp.showToast(`✓ ${data.message}`);
+              window.NconixApp.updateNavbarAuthUI(data.user);
+            }
+            setTimeout(() => {
+              window.location.href = data.redirect_url || '/portals.html';
+            }, 500);
+          } else {
+            if (errorBox) {
+              errorBox.innerText = data.message || 'Invalid credentials. Please verify your details.';
+              errorBox.style.display = 'block';
+            }
+          }
+        } catch (err) {
+          if (errorBox) {
+            errorBox.innerText = 'Network error. Please try again.';
+            errorBox.style.display = 'block';
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Sign In to Workspace →';
+          }
+        }
+      }
+
+      // Check URL param for role
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const role = urlParams.get('role');
+        if (role && ['student', 'client', 'admin'].includes(role)) {
+          const btn = document.querySelector(`[onclick*="'${role}'"]`);
+          if (btn) setPageAuthRole(role, btn);
+        }
+      });
+    </script>
+{% endblock %}
