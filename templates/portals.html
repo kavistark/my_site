@@ -14,11 +14,11 @@
         </div>
 
         <!-- Interactive In-Page Auth & Role Access Gate -->
-        <div class="glass-card" style="padding: 1.75rem 2rem; margin-bottom: 2rem; border-color: rgba(0, 240, 255, 0.3);">
+        <div class="glass-card" style="padding: 1.75rem 2rem; margin-bottom: 2rem; border-color: var(--border-cyan);">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
             <div>
               <span class="badge badge-cyan" style="margin-bottom: 0.35rem;">Portal Selection & Authentication</span>
-              <h2 style="font-size: 1.3rem; color: var(--text-white); margin-bottom: 0.25rem;">Switch Between Client & Student Desks</h2>
+              <h2 style="font-size: 1.3rem; color: var(--text-heading); margin-bottom: 0.25rem;">Switch Between Client & Student Desks</h2>
               <p style="font-size: 0.875rem; color: var(--text-secondary);">Select your portal below to access project requirements, live chat, or academy courses.</p>
             </div>
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
@@ -30,11 +30,11 @@
           </div>
 
           <!-- Quick 1-Click Role Switcher -->
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.8125rem; color: var(--text-muted);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid var(--border-subtle); font-size: 0.8125rem; color: var(--text-muted);">
             <span>⚡ Active Workspace View:</span>
-            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('client')" class="badge badge-violet" style="cursor: pointer; border: 1px solid rgba(139, 92, 246, 0.4); padding: 0.4rem 0.8rem;">💼 Enterprise Client Portal (Projects & Chat Only)</button>
+            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('client')" class="badge badge-violet" style="cursor: pointer; border: 1px solid var(--border-violet); padding: 0.4rem 0.8rem;">💼 Enterprise Client Portal (Projects & Chat Only)</button>
             <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('student')" class="badge badge-cyan" style="cursor: pointer; border: 1px solid var(--border-cyan); padding: 0.4rem 0.8rem;">🎓 Student Academy Portal (Courses & Labs Only)</button>
-            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('admin')" class="badge badge-emerald" style="cursor: pointer; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.4rem 0.8rem;">⚡ System Admin Desk</button>
+            <button type="button" onclick="window.NconixApp.dashboardManager.switchRole('admin')" class="badge badge-emerald" style="cursor: pointer; border: 1px solid var(--border-emerald); padding: 0.4rem 0.8rem;">⚡ System Admin Desk</button>
           </div>
         </div>
 

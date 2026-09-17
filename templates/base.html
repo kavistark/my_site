@@ -13,12 +13,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheets (with Cache-Busting) -->
-  <link rel="stylesheet" href="/styles/main.css?v=2.1">
-  <link rel="stylesheet" href="/styles/layout.css?v=2.1">
-  <link rel="stylesheet" href="/styles/components.css?v=2.1">
-  <link rel="stylesheet" href="/styles/ai-visualizer.css?v=2.1">
-  <link rel="stylesheet" href="/styles/dashboard.css?v=2.1">
+  <link rel="stylesheet" href="/styles/main.css?v=2.2">
+  <link rel="stylesheet" href="/styles/layout.css?v=2.2">
+  <link rel="stylesheet" href="/styles/components.css?v=2.2">
+  <link rel="stylesheet" href="/styles/ai-visualizer.css?v=2.2">
+  <link rel="stylesheet" href="/styles/dashboard.css?v=2.2">
   {% block extra_css %}{% endblock %}
+
+  <!-- Immediate Theme Initialization to Prevent Flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('nconix_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body>
 
@@ -42,23 +50,31 @@
       <!-- Desktop Nav -->
       <ul class="nav-menu">
         <li class="nav-item"><a href="/index.html" class="nav-link {% if page_name == 'index' or not page_name %}active{% endif %}">Home</a></li>
-        <li class="nav-item"><a href="/clients.html" class="nav-link {% if page_name == 'clients' %}active{% endif %}">Our Clients</a></li>
         <li class="nav-item">
-          <a href="/academy.html" class="nav-link {% if page_name in 'academy,live-classes,ai-solutions,blog,projects,services,reviews' %}active{% endif %}">Academy ▾</a>
+          <a href="/services.html" class="nav-link {% if page_name in 'services,projects,ai-solutions' %}active{% endif %}">Solutions ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="/academy.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Courses & Marketplace</a></li>
-            <li><a href="/live-classes.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Live Online Classes</a></li>
+            <li><a href="/services.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Enterprise Engineering</a></li>
             <li><a href="/ai-solutions.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg> AI Lab & RAG Explorer</a></li>
-            <li><a href="/blog.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Knowledge Hub & Guides</a></li>
-            <li><a href="/projects.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><circle cx="12" cy="13" r="2"/><path d="M14 13h3"/><path d="M7 13h3"/></svg> Projects & Case Studies</a></li>
-            <li><a href="/services.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Enterprise Solutions</a></li>
-            <li><a href="/about.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> About Nconix</a></li>
-            <li><a href="/reviews.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Reviews & Stories</a></li>
+            <li><a href="/projects.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><circle cx="12" cy="13" r="2"/><path d="M14 13h3"/><path d="M7 13h3"/></svg> our productes and projects</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a href="/community.html" class="nav-link {% if page_name == 'community' %}active{% endif %}">Community</a></li>
-        <li class="nav-item"><a href="/about.html" class="nav-link {% if page_name == 'about' %}active{% endif %}">About Nconix</a></li>
-        <li class="nav-item"><a href="/contact.html" class="nav-link {% if page_name == 'contact' %}active{% endif %}">Contact Us</a></li>
+        <li class="nav-item">
+          <a href="/academy.html" class="nav-link {% if page_name in 'academy,live-classes,blog' %}active{% endif %}">Academy ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="/academy.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Courses & Cohorts</a></li>
+            <li><a href="/live-classes.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Online Courses</a></li>
+            <li><a href="/blog.html" class="dropdown-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Knowledge Hub & Guides</a></li>
+          </ul>
+        </li>
+        
+        
+        <li class="nav-item"><a href="/clients.html" class="nav-link {% if page_name == 'clients' %}active{% endif %}">Clients</a></li>
+        <!-- <li class="nav-item"><a href="/reviews.html" class="nav-link {% if page_name == 'reviews' %}active{% endif %}">Reviews</a></li> -->
+        <!-- <li class="nav-item"><a href="/community.html" class="nav-link {% if page_name == 'community' %}active{% endif %}">Community</a></li> -->
+        <!-- <li class="nav-item"><a href="/portals.html" class="nav-link {% if page_name in 'portals,client-portal,student-portal' %}active{% endif %}">Portals</a></li> -->
+
+        <li class="nav-item"><a href="/contact.html" class="nav-link {% if page_name == 'contact' %}active{% endif %}">Contact</a></li>
+        <li class="nav-item"><a href="/about.html" class="nav-link {% if page_name == 'about' %}active{% endif %}">About Us</a></li>
       </ul>
 
       <!-- Header CTAs -->
@@ -79,14 +95,17 @@
     </div>
     <a href="/index.html" class="mobile-nav-link" style="color:var(--cyan-accent);font-weight:700;">Home</a>
     <a href="/about.html" class="mobile-nav-link" style="color:var(--text-primary);">About Nconix</a>
-    <a href="/clients.html" class="mobile-nav-link" style="color:var(--text-primary);">Our Clients</a>
+    <a href="/services.html" class="mobile-nav-link" style="color:var(--text-primary);">Solutions & Services</a>
     <a href="/academy.html" class="mobile-nav-link" style="color:var(--text-primary);">Academy & Courses</a>
     <a href="/live-classes.html" class="mobile-nav-link" style="color:var(--text-primary);">Live Online Classes</a>
     <a href="/ai-solutions.html" class="mobile-nav-link" style="color:var(--text-primary);">AI Lab & RAG</a>
     <a href="/projects.html" class="mobile-nav-link" style="color:var(--text-primary);">Projects & Solutions</a>
+    <a href="/clients.html" class="mobile-nav-link" style="color:var(--text-primary);">Our Clients</a>
+    <a href="/reviews.html" class="mobile-nav-link" style="color:var(--text-primary);">Reviews</a>
     <a href="/community.html" class="mobile-nav-link" style="color:var(--text-primary);">Community</a>
+    <a href="/portals.html" class="mobile-nav-link" style="color:var(--text-primary);">Role-Based Portals</a>
     <a href="/contact.html" class="mobile-nav-link" style="color:var(--text-primary);">Contact Us</a>
-    <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:0.5rem;padding-top:0.5rem;">
+    <div style="border-top:1px solid var(--border-subtle);margin-top:0.5rem;padding-top:0.5rem;">
       <button type="button" onclick="window.NconixApp.openLoginModal(); window.NconixApp.closeMobileMenu();" class="mobile-nav-link" style="background:transparent;border:none;width:100%;text-align:left;color:var(--text-primary);cursor:pointer;padding:0.75rem 0;">Login to Portals</button>
       <button type="button" onclick="window.NconixApp.openRegisterModal(); window.NconixApp.closeMobileMenu();" class="mobile-nav-link" style="background:transparent;border:none;width:100%;text-align:left;color:var(--cyan-accent);font-weight:700;cursor:pointer;padding:0.75rem 0;">Create Free Account</button>
     </div>

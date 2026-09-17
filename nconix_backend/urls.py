@@ -25,9 +25,10 @@ urlpatterns = [
     path('api/portal/requirements/', core_views.api_project_requirements, name='api_project_requirements'),
     path('api/portal/chat/', core_views.api_portal_chat, name='api_portal_chat'),
 
-    # Direct static file serving for styles/ and js/ paths referenced in HTML
-    re_path(r'^styles/(?P<path>.*)$', serve, {'document_root': settings.BASE_DIR / 'styles'}),
-    re_path(r'^js/(?P<path>.*)$', serve, {'document_root': settings.BASE_DIR / 'js'}),
+    # Static file serving for /static/, /styles/ and /js/
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.BASE_DIR / 'static'}),
+    re_path(r'^styles/(?P<path>.*)$', serve, {'document_root': settings.BASE_DIR / 'static/styles'}),
+    re_path(r'^js/(?P<path>.*)$', serve, {'document_root': settings.BASE_DIR / 'static/js'}),
 
     # App Portal Routes
     path('student-portal/', include('student_portal.urls')),
